@@ -1,0 +1,21 @@
+{
+  "name": "orders-service",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node bin/api",
+    "start:dev": "nodemon bin/api",
+    "test": "NODE_ENV=test mocha"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "mocha": "^7.0.0",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.2",
+    "pg": "^7.17.1"
+  }
+}
