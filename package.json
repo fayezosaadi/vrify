@@ -1,18 +1,23 @@
 {
-  "name": "orders-service",
+  "name": "vrify",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node bin/api",
     "start:dev": "nodemon bin/api",
-    "test": "NODE_ENV=test mocha"
+    "test": "NODE_ENV=test mocha",
+    "db:migrate": "./node_modules/.bin/knex --knexfile=./knexfile.js migrate:latest",
+    "db:migrate:test": "./node_modules/.bin/knex --knexfile=./knexfile.js migrate:latest --env testing",
+    "db:migrate:rollback": "./node_modules/.bin/knex --knexfile=./knexfile.js migrate:rollback"
   },
   "dependencies": {
+    "bookshelf": "^1.0.1",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "knex": "^0.20.8",
     "mocha": "^7.0.0",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.2",
