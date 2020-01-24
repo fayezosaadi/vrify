@@ -1,8 +1,13 @@
 const bookshelf = require('../infra/bookshelf');
+require('./customer');
 
-const CustomerAddresses = bookshelf.Model.extend({
+const CustomerAddress = bookshelf.Model.extend({
   tableName: 'customer_addresses',
   hasTimestamps: true,
+
+  customer() {
+    return this.belongsTo('Customer');
+  },
 
   // DB queries
   async getAddresses() {
@@ -27,4 +32,4 @@ const CustomerAddresses = bookshelf.Model.extend({
 
 });
 
-module.exports = bookshelf.model('Customer_Addresses', CustomerAddresses);
+module.exports = bookshelf.model('CustomerAddress', CustomerAddress);

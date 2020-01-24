@@ -3,8 +3,8 @@ const config = require("../knexfile");
 
 class Postgres {
   static async connect() {
-    await knex(config.development)
+    process.env.NODE_ENV === "test" ? await knex(config.testing) : await knex(config.development)
   }
 }
 
-module.exports = { Postgres, knex: knex(config.development) };
+module.exports = { Postgres, knex: process.env.NODE_ENV === "test" ? knex(config.testing) : knex(config.development) };

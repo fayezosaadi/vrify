@@ -1,12 +1,12 @@
 const bookshelf = require('../infra/bookshelf');
-require("./customer_addresses");
+require("./customer_address");
 
 const Customer = bookshelf.Model.extend({
   tableName: 'customers',
   hasTimestamps: true,
 
-  async customerAddresses() {
-    return this.hasOne('Customer_Addresses');
+  customerAddress() {
+    return this.hasOne('CustomerAddress');
   },
 
   // DB queries
@@ -15,7 +15,7 @@ const Customer = bookshelf.Model.extend({
   },
 
   async getCustomer(id) {
-    return this.where({ id }).fetch({ withRelated: ['customerAddresses'] });
+    return this.where({ id }).fetch({ withRelated: ['customerAddress'] });
   },
 
   async createCustomer(customer) {
@@ -30,6 +30,9 @@ const Customer = bookshelf.Model.extend({
     return this.where({ id }).destroy();
   },
 
+  async deleteAll() {
+    return this.where('id', '!=', '0').destroy()
+  }
 });
 
 module.exports = bookshelf.model('Customer', Customer);

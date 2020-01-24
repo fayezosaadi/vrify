@@ -1,7 +1,7 @@
 const Customer = require("./customer");
-const CustomerAddresses = require("./customer_addresses");
+const CustomerAddress = require("./customer_address");
 
 
-const models = { Customer, CustomerAddresses };
+const models = { Customer, CustomerAddress };
 
 module.exports = models;
