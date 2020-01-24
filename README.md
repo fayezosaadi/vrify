@@ -74,4 +74,4 @@ create database vrify_test;
 Tests are written to verify that the api endpoints are functioning as expected, 
 they are written using Mocha framework and Chai assertion library
 
-- **npm run test**
+- `npm run test`
